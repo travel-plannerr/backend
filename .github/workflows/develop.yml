@@ -27,6 +27,18 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@ec92e829475ac0c2315ea8f9eced72db85bb337a # v3.0.0
 
+
+    - name: Set up environment variables
+      env:
+        DB_URL: ${{ secrets.DB_URL }}
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      run: |
+        echo "spring.datasource.url=${DB_URL}" >> application.yml
+        echo "spring.datasource.username=${DB_USERNAME}" >> application.yml
+        echo "spring.datasource.password=${DB_PASSWORD}" >> application.yml
+        
+
     - name: Build with Gradle
       run: ./gradlew test
 
