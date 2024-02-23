@@ -1,7 +1,7 @@
 ---
-name: Feature
-about: 기능 개발
-title: "[Feature]"
+name: Setting
+about: 환경 설정
+title: "[SETTING]"
 labels: ''
 assignees: ''
 
