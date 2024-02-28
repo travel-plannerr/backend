@@ -11,7 +11,10 @@ import org.springframework.http.HttpStatus;
 public enum SuccessStatus implements BaseCode {
 
     // 유저 관련 응답
-    OK(HttpStatus.OK, "COMMON_100", "성공입니다.");
+    OK(HttpStatus.OK, "COMMON_100", "성공입니다."),
+
+    // 지도 관련 응답
+    MAP_OK(HttpStatus.OK, "MAP_200", "성공입니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
