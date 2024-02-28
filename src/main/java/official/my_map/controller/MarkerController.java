@@ -3,6 +3,7 @@ package official.my_map.controller;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
+import official.my_map.common.converter.MarkerConverter;
 import official.my_map.common.response.ApiResponse;
 import official.my_map.common.response.code.status.SuccessStatus;
 import official.my_map.domain.Marker;
@@ -33,13 +34,13 @@ public class MarkerController {
     @PostMapping("/marker")
     public ApiResponse<?> addMarker(@RequestBody MarkerRequestDTO.addMarkerDTO request){
         Marker marker = markerCommandService.addMarker(request);
-        return ApiResponse.onSuccess(SuccessStatus.MAP_OK, null);
+        return ApiResponse.onSuccess(SuccessStatus.MAP_OK, MarkerConverter.toMarkerAddResultDTO(marker));
     }
 
     @GetMapping("/marker")
     public ApiResponse<?> getMarker(@RequestBody MarkerRequestDTO.MapDTO request){
         List<Marker> markers = markerQueryService.getMarkers(request);
-        return ApiResponse.onSuccess(SuccessStatus.MAP_OK, null);
+        return ApiResponse.onSuccess(SuccessStatus.MAP_OK, MarkerConverter.toMarkerInfoResultDTO(markers));
     }
 
     @DeleteMapping("/marker")
@@ -51,6 +52,6 @@ public class MarkerController {
     @GetMapping("/marker/{markerId}")
     public ApiResponse<?> getMarkerInfo(@PathVariable Long markerId){
         Marker marker = markerQueryService.getMarkerDetail(markerId);
-        return ApiResponse.onSuccess(SuccessStatus.MAP_OK, null);
+        return ApiResponse.onSuccess(SuccessStatus.MAP_OK, MarkerConverter.toMarkerInfoDetailResultDTO(marker));
     }
 }
