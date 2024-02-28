@@ -1,11 +1,11 @@
-package official.my_map.dto.MapRequest;
+package official.my_map.dto.MarkerRequest;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-public class MapRequestDTO {
+public class MarkerRequestDTO {
 
 
     @Builder
@@ -20,7 +20,7 @@ public class MapRequestDTO {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class MapAddMarkerDTO{
+    public static class addMarkerDTO{
         Long userId;
         Long locationId;
         Long planId;
@@ -30,7 +30,7 @@ public class MapRequestDTO {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class MapDeleteMarkerDTO{
+    public static class deleteMarkerDTO{
         Long userId;
         Long markerId;
     }
@@ -39,7 +39,7 @@ public class MapRequestDTO {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class GetMarkerDetailDTO{
+    public static class getMarkerDetailDTO{
         Long markerId;
     }
 

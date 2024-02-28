@@ -1,4 +1,4 @@
-package official.my_map.dto.MapRequest;
+package official.my_map.dto.MarkerRequest;
 
 
 import java.time.LocalDateTime;
@@ -10,13 +10,13 @@ import official.my_map.domain.Address;
 import official.my_map.domain.User;
 
 
-public class MapResponseDTO {
+public class MarkerResponseDTO {
 
     @Builder
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class MarkerAddResultDTO{
+    public static class markerAddResultDTO{
         Long markerId;
         LocalDateTime createdAt;
     }
@@ -25,7 +25,7 @@ public class MapResponseDTO {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class MarkerInfoResultDTO{
+    public static class markerInfoResultDTO{
         Long latitude;
         Long longitude;
         String name;
@@ -37,7 +37,7 @@ public class MapResponseDTO {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class MarkerInfoDetailResultDTO{
+    public static class markerInfoDetailResultDTO{
         Long latitude;
         Long longitude;
         String name;
