@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/travel-planing")
-public class MapController {
+public class MarkerController {
 
     @GetMapping("/")
     public ApiResponse<?> mainPage(@RequestBody MarkerRequestDTO.MapDTO request){
