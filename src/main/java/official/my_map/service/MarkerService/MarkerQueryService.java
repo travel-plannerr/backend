@@ -6,8 +6,8 @@ import official.my_map.dto.MarkerRequest.MarkerRequestDTO;
 
 public interface MarkerQueryService {
 
-    List<Marker> getMarker(MarkerRequestDTO.MapDTO request);
+    List<Marker> getMarkers(MarkerRequestDTO.MapDTO request);
 
-    Marker getMarkerDetail(MarkerRequestDTO.getMarkerDetailDTO request);
+    Marker getMarkerDetail(Long markerId);
 
 }

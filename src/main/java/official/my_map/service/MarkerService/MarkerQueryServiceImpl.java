@@ -21,15 +21,14 @@ public class MarkerQueryServiceImpl implements MarkerQueryService {
     private final UserRepository userRepository;
 
     @Override
-    public List<Marker> getMarker(MapDTO request) {
+    public List<Marker> getMarkers(MapDTO request) {
         Long userId = request.getUserId();
         User user = userRepository.findById(userId).get();
         return markerRepository.findAllByUser(user);
     }
 
     @Override
-    public Marker getMarkerDetail(MarkerRequestDTO.getMarkerDetailDTO request) {
-        Long markerId = request.getMarkerId();
+    public Marker getMarkerDetail(Long markerId) {
         return markerRepository.findById(markerId).get();
     }
 }
