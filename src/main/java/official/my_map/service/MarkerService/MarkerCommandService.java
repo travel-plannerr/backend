@@ -7,7 +7,7 @@ public interface MarkerCommandService {
 
     Marker addMarker(MarkerRequestDTO.addMarkerDTO request);
 
-    void deleteMarker(MarkerRequestDTO.deleteMarkerDTO request);
+    Marker deleteMarker(MarkerRequestDTO.deleteMarkerDTO request);
 
 
 

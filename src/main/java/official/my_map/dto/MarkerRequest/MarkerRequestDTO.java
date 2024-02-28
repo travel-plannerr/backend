@@ -23,7 +23,7 @@ public class MarkerRequestDTO {
     public static class addMarkerDTO{
         Long userId;
         Long locationId;
-        Long planId;
+        Long planningId;
     }
 
     @Builder
