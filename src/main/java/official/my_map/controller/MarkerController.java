@@ -8,6 +8,7 @@ import official.my_map.common.response.ApiResponse;
 import official.my_map.common.response.code.status.SuccessStatus;
 import official.my_map.domain.Marker;
 import official.my_map.dto.MarkerRequest.MarkerRequestDTO;
+import official.my_map.dto.MarkerRequest.MarkerResponseDTO;
 import official.my_map.service.MarkerService.MarkerCommandService;
 import official.my_map.service.MarkerService.MarkerQueryService;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,13 +33,13 @@ public class MarkerController {
     }
 
     @PostMapping("/marker")
-    public ApiResponse<?> addMarker(@RequestBody MarkerRequestDTO.addMarkerDTO request){
+    public ApiResponse<MarkerResponseDTO.markerAddResultDTO> addMarker(@RequestBody MarkerRequestDTO.addMarkerDTO request){
         Marker marker = markerCommandService.addMarker(request);
         return ApiResponse.onSuccess(SuccessStatus.MAP_OK, MarkerConverter.toMarkerAddResultDTO(marker));
     }
 
     @GetMapping("/marker")
-    public ApiResponse<?> getMarker(@RequestBody MarkerRequestDTO.MapDTO request){
+    public ApiResponse<MarkerResponseDTO.markersResultDTO> getMarker(@RequestBody MarkerRequestDTO.MapDTO request){
         List<Marker> markers = markerQueryService.getMarkers(request);
         return ApiResponse.onSuccess(SuccessStatus.MAP_OK, MarkerConverter.toMarkerInfoResultDTO(markers));
     }
@@ -50,7 +51,7 @@ public class MarkerController {
     }
 
     @GetMapping("/marker/{markerId}")
-    public ApiResponse<?> getMarkerInfo(@PathVariable Long markerId){
+    public ApiResponse<MarkerResponseDTO.markerInfoDetailResultDTO> getMarkerInfo(@PathVariable Long markerId){
         Marker marker = markerQueryService.getMarkerDetail(markerId);
         return ApiResponse.onSuccess(SuccessStatus.MAP_OK, MarkerConverter.toMarkerInfoDetailResultDTO(marker));
     }
